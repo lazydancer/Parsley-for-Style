@@ -1,0 +1,18 @@
+<h1>Food Plan</h1>
+
+{% if latest_recipe_list %}
+    <ul>
+    {% for recipe in latest_recipe_list %}
+        <li><a href="/plan/{{ recipe.id }}/">{{ recipe.title }}</a></li>
+    {% endfor %}
+    </ul>
+    <ol>
+    
+    {% for ingredient in ingredient_list %}
+    	<li>{{ ingredient.cost }} - {{ ingredient.name }} - {{ ingredient.amount }} {{ ingredient.unit }}</li>
+	{% endfor %}
+    </ol>
+
+{% else %}
+    <p>No polls are available.</p>
+{% endif %}
