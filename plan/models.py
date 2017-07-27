@@ -26,6 +26,7 @@ class Ingredient(models.Model):
 		return self.name
 
 
+
 	
 
 		
