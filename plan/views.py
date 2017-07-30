@@ -16,10 +16,21 @@ def index(request):
 
 	ingredient_list = sorted(ingredient_list, key=(lambda x: x.cost), reverse=True)
 
+	
+
+	doneIngredients = []
+	for item in ingredient_list:
+		done = list(filter( lambda x: x.name == item.name, doneIngredients))
+		if len(done) == 0:
+			doneIngredients.append(item)
+		else:
+			continue #doneIngredients['amount'] += done['amount']
+
 	context = {
 		'latest_recipe_list': latest_recipe_list,
-		'ingredient_list': ingredient_list,
+		'ingredient_list': doneIngredients,
 	}
+
 	return render(request, 'plan/index.html', context)
 '''
 class IndexView(generic.ListView):

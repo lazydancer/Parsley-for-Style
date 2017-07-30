@@ -7,7 +7,7 @@ class Recipe(models.Model):
 	preptime = models.IntegerField()
 	cooktime = models.IntegerField()
 	servings = models.IntegerField()
-	instruction = models.CharField(max_length=700)
+	instruction = models.CharField(max_length=1400)
 
 	def decode_instruction(self):
 		return self.instruction.split("#,#")
