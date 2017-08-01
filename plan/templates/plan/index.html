@@ -61,13 +61,15 @@
       {% if latest_recipe_list %}
           <div class="col-md-6">
           {% for recipe in latest_recipe_list %}
-            <div class="item rounded">
-              <img src="http://via.placeholder.com/80x80" class="food_image rounded">
-              <div class="the-text">
-                <h4 style="">{{ recipe.title }}</h4>
+            <a href="{{ recipe.id }}/">
+              <div class="item rounded">
+                <img src="http://via.placeholder.com/80x80" class="food_image rounded">
+                <div class="the-text">
+                  <h4 style="">{{ recipe.title }}</h4>
+                </div>
               </div>
-            </div>
-            {% endfor %}
+            </a>
+          {% endfor %}
           </div>
 
     {% endif %}
@@ -79,16 +81,14 @@
                     <th>Item</th>
                     <th>Amount</th>
                     <th>Unit</th>
-                    <th>Cost</th>
                   </tr>
                 </thead>
                 <tbody>
                 {% for ingredient in ingredient_list %}
                   <tr>
                     <th scope="row">{{ ingredient.name }}</th>
-                    <td>{{ ingredient.amount }}</td>
+                    <td>{{ ingredient.amount|floatformat:2 }}</td>
                     <td>{{ ingredient.unit }}</td>
-                    <td>{{ ingredient.cost }}</td>
                   </tr>
                 {% endfor %}
                 </tbody>
