@@ -3,7 +3,7 @@ from django.views import generic
 from .models import Recipe, Ingredient
 
 
-def convertToGram(aunit, density):
+def conversionToGram(aunit, density):
 	if aunit == "cup" or aunit == "cups":
 		return density * 284.13
 	elif aunit == "Tbsp" or aunit == "tbsp":
@@ -19,18 +19,32 @@ def convertToGram(aunit, density):
 	else:
 		return 10
 
+def combineIngredientComponents(y):
+
+	a = y[0]
+
+	total_amount = 0
+	for i in y:
+		amount = i.amount * conversionToGram(i.unit, i.component.density)
+		total_amount += amount
+
+	a.amount = total_amount
+	a.unit = "g"
+	
+	return a
+	
 
 def combineIngredients(ingredient_list):
 	doneIngredients = []
 	for item in ingredient_list:
-		done = list(filter( lambda x: x.name == item.name, doneIngredients))
-		if len(done) == 0:
-			doneIngredients.append(item)
-		else:
-			continue #doneIngredients['amount'] += done['amount']
+		if len([x for x in doneIngredients if x.component == item.component]) == 0:	
+		# Check if the component has already been covered, if so skip to the next 
+			y =  [x for x in ingredient_list if x.component == item.component]
+			if len(y) >= 1:
+				a = combineIngredientComponents(y)
+				doneIngredients.append(a)  
 
 	return doneIngredients
-
 
 def index(request):
 	latest_recipe_list = Recipe.objects.order_by('id')[:5]
