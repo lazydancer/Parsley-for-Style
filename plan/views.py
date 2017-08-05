@@ -57,10 +57,45 @@ def groupbyDepartment(ingredient_list):
 				group.append(ingredient)
 		groupedIngredientList.append(group)
 
-
-	print(groupedIngredientList)
-
 	return groupedIngredientList
+
+def convertToML(ingredients):
+	result = []
+
+	for ingredient in ingredients:
+		if ingredient.component.common_unit == "default":
+			ml = gramsToML(ingredient.amount, ingredient.component.density)
+			amount,unit = gramsToTeaCups(ml)
+			ingredient.amount = amount			
+			ingredient.unit = unit
+			result.append(ingredient)
+
+	return result
+
+def gramsToML(grams, density):
+	return grams/density
+
+def roundPartial (value, resolution):
+	return round(value/resolution) * resolution
+
+def gramsToTeaCups(ml):
+	if ml < 2:
+		return (1, "dash")
+	elif ml < 5:
+		return (0.5, "tsp")
+	elif ml < 10: 
+		return (1, "tsp")
+	elif ml < 16:
+		return (2, "tsp")
+	elif ml < 30:
+		return (1, "tbsp")
+	elif ml < 48:
+		return (2, "tbsp")
+	elif ml < 64:
+		return (3, "tbsp")
+	else:
+		cups = ml/284
+		return (roundPartial(cups,0.25), "cups")
 
 def index(request):
 	latest_recipe_list = Recipe.objects.order_by('id')[:5]
@@ -71,7 +106,7 @@ def index(request):
 			ingredient_list.append(ingredient)
 
 	ingredient_list = combineIngredients(ingredient_list)
-	
+	ingredient_list = convertToML(ingredient_list)
 	ingredient_list = groupbyDepartment(ingredient_list)
 
 	context = {
