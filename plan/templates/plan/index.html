@@ -77,12 +77,22 @@
           <div class="grocery">
             <table class="table">
               <tbody>
-              {% for ingredient in ingredient_list %}
+              {% for ingredient_group in ingredient_list %}
+              {% for ingredient in ingredient_group %}
+              {% if forloop.first %}
+                <tr>
+                  <th>{{ ingredient.component.department }}</th>
+                  <th></th>
+                  <th></th>
+                </tr>
+              {% endif %}
+
                 <tr>
                   <td>{{ ingredient.name }}</td>
                   <td>{{ ingredient.amount|floatformat:2 }}</td>
                   <td>{{ ingredient.unit }}</td>
                 </tr>
+              {% endfor %}
               {% endfor %}
               </tbody>
             </table>

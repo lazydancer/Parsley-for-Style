@@ -23,20 +23,16 @@ def conversionToGram(aunit, density):
 		return 10
 
 def combineIngredientComponents(y):
-
 	a = y[0]
-
 	total_amount = 0
 	for i in y:
 		amount = i.amount * conversionToGram(i.unit, i.component.density)
 		total_amount += amount
-
 	a.amount = total_amount
 	a.unit = "g"
 	
 	return a
 	
-
 def combineIngredients(ingredient_list):
 	doneIngredients = []
 	for item in ingredient_list:
@@ -49,6 +45,23 @@ def combineIngredients(ingredient_list):
 
 	return doneIngredients
 
+def groupbyDepartment(ingredient_list):
+
+	departmentGroups = ["Produce","Deli","Bakery","Dairy","Meat","Frozen","Grocery","Spices"]
+
+	groupedIngredientList = []
+	for department in departmentGroups:
+		group = []
+		for ingredient in ingredient_list:
+			if ingredient.component.department == department:
+				group.append(ingredient)
+		groupedIngredientList.append(group)
+
+
+	print(groupedIngredientList)
+
+	return groupedIngredientList
+
 def index(request):
 	latest_recipe_list = Recipe.objects.order_by('id')[:5]
 
@@ -59,6 +72,7 @@ def index(request):
 
 	ingredient_list = combineIngredients(ingredient_list)
 	
+	ingredient_list = groupbyDepartment(ingredient_list)
 
 	context = {
 		'latest_recipe_list': latest_recipe_list,
