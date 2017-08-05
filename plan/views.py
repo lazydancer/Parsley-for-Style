@@ -19,7 +19,7 @@ def conversionToGram(aunit, density):
 
 	# These are too fill to not let the program fail
 	else:
-		print(aunit," does not exist")
+		#print(aunit," does not exist")
 		return 10
 
 def combineIngredientComponents(y):
@@ -63,12 +63,21 @@ def convertToML(ingredients):
 	result = []
 
 	for ingredient in ingredients:
-		if ingredient.component.common_unit == "default":
+		common_unit = ingredient.component.common_unit
+		if common_unit == "default":
 			ml = gramsToML(ingredient.amount, ingredient.component.density)
 			amount,unit = gramsToTeaCups(ml)
 			ingredient.amount = amount			
 			ingredient.unit = unit
 			result.append(ingredient)
+		else:
+			unit_list = ingredient.component.unit_set.all()
+			
+			for unit in unit_list:
+				if unit.name == common_unit:
+					ingredient.amount = ingredient.amount / unit.amount
+					ingredient.unit = common_unit
+					result.append(ingredient)
 
 	return result
 
@@ -115,14 +124,7 @@ def index(request):
 	}
 
 	return render(request, 'plan/index.html', context)
-'''
-class IndexView(generic.ListView):
-	template_name = 'plan/index.html'
-	context_object_name = 'latest_recipe_list'
 
-	def get_queryset(self):
-		return Recipe.objects.order_by('id')[:5]
-'''
 class DetailView(generic.DetailView):
 	model = Recipe
 	template_name = 'plan/detail.html'

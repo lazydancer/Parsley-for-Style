@@ -39,4 +39,7 @@ class Unit(models.Model):
 	component = models.ForeignKey(Component, on_delete=models.CASCADE)
 	name = models.CharField(max_length=100)
 	amount = models.FloatField() # in grams
+
+	def __str__(self):
+		return self.name
 		
