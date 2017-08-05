@@ -59,43 +59,37 @@
 
       <div class="row" style="padding-top:3rem">
       {% if latest_recipe_list %}
-          <div class="col-md-6">
-          {% for recipe in latest_recipe_list %}
-            <a href="{{ recipe.id }}/">
-              <div class="item rounded">
-                <img src="http://via.placeholder.com/80x80" class="food_image rounded">
-                <div class="the-text">
-                  <h4 style="">{{ recipe.title }}</h4>
-                </div>
+        <div class="col-md-6">
+        {% for recipe in latest_recipe_list %}
+          <a href="{{ recipe.id }}/">
+            <div class="item rounded">
+              <img src="http://via.placeholder.com/80x80" class="food_image rounded">
+              <div class="the-text">
+                <p style="color:black">{{ recipe.title }}</h4>
               </div>
-            </a>
-          {% endfor %}
-          </div>
-
-    {% endif %}
-          <div class='col-md-6'>
-            <div class="grocery">
-              <table class="table">
-                <thead>
-                  <tr>
-                    <th>Item</th>
-                    <th>Amount</th>
-                    <th>Unit</th>
-                  </tr>
-                </thead>
-                <tbody>
-                {% for ingredient in ingredient_list %}
-                  <tr>
-                    <th scope="row">{{ ingredient.name }}</th>
-                    <td>{{ ingredient.amount|floatformat:2 }}</td>
-                    <td>{{ ingredient.unit }}</td>
-                  </tr>
-                {% endfor %}
-                </tbody>
-              </table>
             </div>
-          </div>
-      </div>
+          </a>
+        {% endfor %}
+        </div>
+
+  {% endif %}
+        <div class='col-md-6'>
+          <div class="grocery">
+            <table class="table">
+              <tbody>
+              {% for ingredient in ingredient_list %}
+                <tr>
+                  <td>{{ ingredient.name }}</td>
+                  <td>{{ ingredient.amount|floatformat:2 }}</td>
+                  <td>{{ ingredient.unit }}</td>
+                </tr>
+              {% endfor %}
+              </tbody>
+            </table>
+          </div><!--grocery-->
+
+        </div>
+   
 
     </div><!-- /.container -->
 

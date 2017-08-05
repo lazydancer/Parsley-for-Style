@@ -10,13 +10,16 @@ def conversionToGram(aunit, density):
 		return density * 17.75
 	elif aunit == "tsp" or aunit == "Tsp":
 		return density * 5.91
-	elif aunit == "lbs" or aunit == "lb":
+	elif aunit == "lbs" or aunit == "lb" or aunit == "lb.":
 		return 453.6
 	elif aunit == "oz" or aunit == "oz.":
 		return 28.34
+	elif aunit == "pinch" or aunit == "Pinch":
+		return 3
 
 	# These are too fill to not let the program fail
 	else:
+		print(aunit," does not exist")
 		return 10
 
 def combineIngredientComponents(y):
