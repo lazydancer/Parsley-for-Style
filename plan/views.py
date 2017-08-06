@@ -47,20 +47,18 @@ class DetailView(generic.DetailView):
 	template_name = 'plan/detail.html'
 
 def ajax_test(request):
-    if request.method == 'POST':
-        post_text = request.POST.get('the_post')
-        response_data = {}
-        
+	if request.method == 'POST':
+		post_text = request.POST.get('text')
+		print(post_text, 'from the server')
+		response_data = {}
+		response_data['result'] = 'Create post successful!'
+		response_data['post_text'] = post_text
 
-        response_data['result'] = 'Create post successful!'
-        response_data['post_text'] = post_text
-
-        return HttpResponse(
-            json.dumps(response_data),
-            content_type="application/json"
-        )
-    else:
-        return HttpResponse(
-            json.dumps({"nothing to see": "this isn't happening"}),
-            content_type="application/json"
-        )
+		return HttpResponse(
+			json.dumps(response_data),
+			content_type="application/json")
+	else:
+ 		return HttpResponse(
+			json.dumps({"nothing to see": "this isn't happening"}),
+			content_type="application/json"
+			)
