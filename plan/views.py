@@ -21,7 +21,7 @@ def groupbyDepartment(ingredient_list):
 
 
 def index(request):
-	latest_recipe_list = Recipe.objects.order_by('id')[:5]
+	latest_recipe_list = Recipe.objects.order_by('id')[:6]
 
 	ingredient_list = []
 	for recipe in latest_recipe_list:
