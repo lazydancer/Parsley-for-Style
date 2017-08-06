@@ -43,6 +43,14 @@
         </table>
       </div><!--grocery-->
     </div>
+    <form action="ajax/test/" method="POST" id="post-form">
+      {% csrf_token %}
+      <div class="fieldWrapper">
+          Words
+      <input type="text" id="post-text">
+      <input type="submit" value="Post">
+    </form>
   </div>
 
+ 
 {% endblock %}
