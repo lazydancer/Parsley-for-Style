@@ -2,7 +2,8 @@ import json
 
 from django.shortcuts import render, get_object_or_404
 from django.views import generic
-from django.http import HttpResponse
+from django.urls import reverse
+from django.http import HttpResponseRedirect, HttpResponse
 from django.core import serializers
 from .models import Recipe, Ingredient
 
@@ -67,15 +68,23 @@ class DetailView(generic.DetailView):
 
 class RecipeListView(generic.TemplateView):
 	model = Recipe
-	template_name = 'plan/add-recipe.html'
+	template_name = 'plan/recipes.html'
 
 	def get_context_data(self, **kwargs):
 		context = super(RecipeListView, self).get_context_data(**kwargs)
 		context['latest'] = Recipe.objects.order_by('id')[:8]
 		return context
 
-def addRecipe(request):
+def addRecipe(request, recipe_id):
+	request.session['recipe_list'].append(int(recipe_id))
 	print(request.session['recipe_list'])
-	request.session['recipe_list'].append(6)
+	request.session.save()
 
-	return(index(request))
+	return HttpResponseRedirect("/plan/")
+
+def removeRecipe(request, recipe_id):
+	request.session['recipe_list'].remove(int(recipe_id))
+	print(request.session['recipe_list'])
+	request.session.save()
+
+	return HttpResponseRedirect("/plan/")

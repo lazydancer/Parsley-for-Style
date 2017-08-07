@@ -1,0 +1,24 @@
+{% extends "plan/base.html" %}
+
+{% block content %}
+
+<div class="row" style="padding-top:3rem">
+  {% if latest %}
+    <div class="col-md-6">
+    {% for recipe in latest %}
+      <a href="{{ recipe.id }}/">
+        <div class="item rounded">
+          <img src="http://via.placeholder.com/80x80" class="food_image rounded">
+          <div class="the-text">
+            <p style="color:black">{{ recipe.title }}</p>
+            <a href="/plan/addrecipe/{{ recipe.id }}/"><p>add</p></a>
+          </div>
+        </div>
+      </a>
+    {% endfor %}
+    </div>
+    {% endif %}
+</div>
+
+
+{% endblock%}
