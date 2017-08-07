@@ -23,3 +23,14 @@ body {
 	padding-top:1rem; 
 	margin-left:100px;
 }
+
+.table td, .table th {
+	border-top: none;
+	padding: 0.25rem;
+}
+
+.table th {
+	text-align: center;
+	text-decoration: underline;
+	padding-top: 0.5rem;
+}

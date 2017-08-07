@@ -10,11 +10,14 @@
         <div class="item rounded">
           <img src="http://via.placeholder.com/80x80" class="food_image rounded">
           <div class="the-text">
-            <p style="color:black">{{ recipe.title }}</h4>
+            <p style="color:black">{{ recipe.title }}</p>
           </div>
         </div>
       </a>
     {% endfor %}
+    <a href="recipes">
+          <div style="height: 40px; text-align: center; background: rgba(0,0,0,0.1); color: black; font-size: 20pt">+</div>
+    </a>
     </div>
 
 {% endif %}
@@ -26,30 +29,25 @@
           {% for ingredient in ingredient_group %}
           {% if forloop.first %}
             <tr>
-              <th>{{ ingredient.component.department }}</th>
-              <th></th>
-              <th></th>
+              <th colspan="4">{{ ingredient.component.department }}</th>
             </tr>
           {% endif %}
 
             <tr>
-              <td>{{ ingredient.name }}</td>
+              <td><input type="checkbox" name="myTextEditBox" value="checked" 
+      style="margin-left:auto; margin-right:auto;"></td>
               <td>{{ ingredient.amount|floatformat:2 }}</td>
               <td>{{ ingredient.unit }}</td>
+              <td>{{ ingredient.name }}</td>
             </tr>
           {% endfor %}
           {% endfor %}
           </tbody>
         </table>
+
       </div><!--grocery-->
     </div>
-    <form action="ajax/test/" method="POST" id="post-form">
-      {% csrf_token %}
-      <div class="fieldWrapper">
-          Words
-      <input type="text" id="post-text">
-      <input type="submit" value="Post">
-    </form>
+    <h5> {{ num_visits}}</h5>
   </div>
 
  
