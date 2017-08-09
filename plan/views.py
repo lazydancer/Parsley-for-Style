@@ -47,7 +47,6 @@ def index(request):
 	ingredient_list = friendlyUnits(ingredient_list)
 	ingredient_list = groupbyDepartment(ingredient_list)
 
-	ingredient_list = request.session.get('ingredient_list', ingredient_list)
 	
 
 	# session test, number of visits

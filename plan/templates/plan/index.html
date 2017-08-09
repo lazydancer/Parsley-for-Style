@@ -8,10 +8,12 @@
     {% for recipe in latest_recipe_list %}
       <a href="{{ recipe.id }}/">
         <div class="item rounded">
+          <div class="remove">
+              <a href="removerecipe/{{ recipe.id }}/">x</a>
+          </div>
           <img src="http://via.placeholder.com/80x80" class="food_image rounded">
           <div class="the-text">
             <p style="color:black">{{ recipe.title }}</p>
-            <a href="removerecipe/{{ recipe.id }}/"><p>remove</p></a>
           </div>
         </div>
       </a>
@@ -36,11 +38,15 @@
           {% endif %}
 
             <tr>
-              <td><input type="checkbox" name="myTextEditBox" value="checked" 
-      style="margin-left:auto; margin-right:auto;"></td>
-              <td>{{ ingredient.amount|floatformat:2 }}</td>
-              <td>{{ ingredient.unit }}</td>
-              <td>{{ ingredient.name }}</td>
+              <td>
+                <div class="customCheckbox">
+                  <input type="checkbox" value="1" id="customCheckbox_{{ ingredient.name }}" name=""/>
+                  <label for="customCheckbox_{{ ingredient.name }}"></label>
+                </div>
+              </td>
+              <td>{{ ingredient.amount|floatformat:2 }} {{ ingredient.unit }} {{ ingredient.name }}</td>
+              <td></td>
+              <td></td>
             </tr>
           {% endfor %}
           {% endfor %}

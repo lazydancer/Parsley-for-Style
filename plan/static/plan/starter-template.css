@@ -17,20 +17,90 @@ body {
 	margin-top:10px; 
 	margin-left: 10px; 
 	float:left
-
 }
+
 .the-text { 
 	padding-top:1rem; 
 	margin-left:100px;
 }
 
+.remove {
+	float:right;
+	padding-right:10px;
+	font-weight: bold;
+}
+.remove a {
+	color: rgba(0,0,0,0.5);
+}
+
 .table td, .table th {
 	border-top: none;
-	padding: 0.25rem;
+	padding: 0.4rem;
 }
 
 .table th {
-	text-align: center;
-	text-decoration: underline;
+	color: rgb(73,58,37);
 	padding-top: 0.5rem;
+	padding-bottom: 0.5rem;
+	border-bottom: 1px solid rgba(73,58,37,.05);
+}
+
+.navbar {
+	padding: 0.75rem 0;
+	border-bottom: 1px solid rgba(73,58,37,.15);
+}
+
+.navbar img {
+  filter: gray; /* IE6-9 */
+  -webkit-filter: grayscale(1); /* Google Chrome, Safari 6+ & Opera 15+ */
+  filter: grayscale(1); /* Microsoft Edge and Firefox 35+ */
+}
+
+/* Disable grayscale on hover */
+.navbar img:hover {
+  -webkit-filter: grayscale(0);
+  filter: none;
+}
+
+input[type=checkbox] {
+	visibility: hidden;
+}
+
+.customCheckbox {
+	width: 13px;
+	height: 13px;
+	border:1px solid rgba(0,0,0,0.3);
+	margin: 6px -10px 0 0;
+	border-radius: 27%;
+	position: relative;
+
+}
+
+.customCheckbox label {
+	cursor: pointer;
+	position: absolute;
+	width: 12px;
+	height: 12px;
+	top: 0;
+  	left: 0;
+}
+
+.customCheckbox label:after {
+	opacity: 0.0;
+	content: '';
+	position: absolute;
+	width: 8px;
+	height: 4px;
+	background: transparent;
+	top: 3px;
+	left: 2px;
+	border: 2px solid rgba(0,0,0,0.7);
+	border-top: none;
+	border-right: none;
+
+	transform: rotate(-45deg);
+}
+
+.customCheckbox input[type=checkbox]:checked + label:after {
+	opacity: 1;
 }
