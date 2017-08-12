@@ -33,6 +33,8 @@ def index(request):
 	recipes_id = request.session.get('recipe_list', recipes_id)
 	request.session['recipe_list'] = recipes_id
 
+	print(recipe_list)
+
 	
 	recipe_list = Recipe.objects.filter(pk__in=recipes_id)
 

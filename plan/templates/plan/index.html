@@ -8,16 +8,16 @@
     {% for recipe in latest_recipe_list %}
       <a href="{{ recipe.id }}/">
         <div class="item rounded">
-          <div class="remove">
-              <a href="removerecipe/{{ recipe.id }}/">x</a>
-          </div>
-          <img src="http://via.placeholder.com/80x80" class="food_image rounded">
+          
+          <img src="http://via.placeholder.com/80x80" class="food_image rounded"/>
           <div class="the-text">
             <p style="color:black">{{ recipe.title }}</p>
           </div>
         </div>
       </a>
-     
+      <div class="remove">
+        <a href="removerecipe/{{ recipe.id }}/">x</a>
+      </div>
     {% endfor %}
     <a href="recipes">
           <div style="height: 40px; text-align: center; background: rgba(0,0,0,0.1); color: black; font-size: 20pt">+</div>

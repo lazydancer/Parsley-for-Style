@@ -7,7 +7,7 @@ class Recipe(models.Model):
 	preptime = models.IntegerField()
 	cooktime = models.IntegerField()
 	servings = models.IntegerField()
-	instruction = models.CharField(max_length=1400)
+	instruction = models.CharField(max_length=5000)
 
 	def decode_instruction(self):
 		return self.instruction.split("#,#")
@@ -28,9 +28,9 @@ class Component(models.Model):
 class Ingredient(models.Model):
 	recipe = models.ForeignKey(Recipe, on_delete=models.CASCADE)
 	component = models.ForeignKey(Component, on_delete=models.CASCADE)
-	name = models.CharField(max_length=100)
+	name = models.CharField(max_length=200)
 	amount = models.FloatField()
-	unit = models.CharField(max_length=100)
+	unit = models.CharField(max_length=200)
 	
 	def __str__(self):
 		return self.name
