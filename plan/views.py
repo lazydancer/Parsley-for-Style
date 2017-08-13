@@ -81,11 +81,11 @@ def addRecipe(request, recipe_id):
 	print(request.session['recipe_list'])
 	request.session.save()
 
-	return HttpResponseRedirect("/plan/")
+	return HttpResponseRedirect("/")
 
 def removeRecipe(request, recipe_id):
 	request.session['recipe_list'].remove(int(recipe_id))
 	print(request.session['recipe_list'])
 	request.session.save()
 
-	return HttpResponseRedirect("/plan/")
+	return HttpResponseRedirect("/")
