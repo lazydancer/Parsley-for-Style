@@ -12,6 +12,7 @@ os.environ.setdefault("DJANGO_SETTINGS_MODULE", "misite.settings")
 
 from django.core.wsgi import get_wsgi_application
 
+print("I am in wsgipy")
 
 
 application = get_wsgi_application()
