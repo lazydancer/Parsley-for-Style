@@ -5,27 +5,26 @@
 <div class="row" style="padding-top:3rem">
   {% if latest_recipe_list %}
     <div class="col-md-6">
-    {% for recipe in latest_recipe_list %}
-      <a href="{{ recipe.id }}/">
-        <div class="item rounded">
-          
-          <img src="http://via.placeholder.com/80x80" class="food_image rounded"/>
-          <div class="the-text">
-            <p style="color:black">{{ recipe.title }}</p>
-          </div>
-        </div>
+  
+    <div class="masonry">
+      {% for recipe in latest_recipe_list %}
+      <a href="{{ recipe.id }}/" class='shot'>
+        <img src="http://via.placeholder.com/180x180" alt="Food image" class="rounded">
+        <h4>{{ recipe.title }}</h4>
       </a>
       <div class="remove">
         <a href="removerecipe/{{ recipe.id }}/">x</a>
       </div>
-    {% endfor %}
-    <a href="recipes">
-          <div style="height: 40px; text-align: center; background: rgba(0,0,0,0.1); color: black; font-size: 20pt">+</div>
-    </a>
+      {% endfor %}
     </div>
+  </div>
+ 
 
 {% endif %}
     <div class='col-md-6'>
+     <a href="recipes">
+        <div style="height: 40px; text-align: center; background: rgba(0,0,0,0.1); color: black; font-size: 20pt; float:clear">+</div>
+  </a>
       <div class="grocery">
         <table class="table">
           <tbody>

@@ -25,9 +25,9 @@ body {
 }
 
 .remove {
-	float:right;
-	padding-right:10px;
-	margin-top: -106px;
+	position: relative;
+	top:14px;
+	right:32px;
 }
 .remove a {
 	color: rgba(0,0,0,0.5);
@@ -103,4 +103,24 @@ input[type=checkbox] {
 
 .customCheckbox input[type=checkbox]:checked + label:after {
 	opacity: 1;
+}
+
+.masonry {
+	display: flex; 
+  	flex-wrap: wrap;
+  	align-items: flex-start;
+}
+
+.shot {
+	width: 180px;
+	margin: 10px;
+	border-radius: 100px;
+
+}
+
+.shot h4 {
+	color:black;
+	font-size: 14pt;
+	padding:4px;
+
 }
