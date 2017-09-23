@@ -4,20 +4,17 @@
 
 <div class="row" style="padding-top:3rem">
   {% if latest %}
-    <div class="col-md-6">
-    {% for recipe in latest %}
-      <a href="{{ recipe.id }}/">
-        <div class="item rounded">
-          <img src="http://via.placeholder.com/80x80" class="food_image rounded">
-          <div class="the-text">
-            <p style="color:black">{{ recipe.title }}</p>
-            <a href="/addrecipe/{{ recipe.id }}/"><p>add</p></a>
-          </div>
-        </div>
-      </a>
-    {% endfor %}
+    <div class="col-md-12">
+      <div class="masonry">
+      {% for recipe in latest %}
+        <a href="/addrecipe/{{ recipe.id }}/" class='shot'>
+          <img src="/static/plan/180food_{{ recipe.id }}.jpg" style="height: 180px; width: 180px;" alt="Food image" class="rounded">
+          <h4>{{ recipe.title }}</h4>
+        </a>
+      {% endfor %}
+      </div>
+      {% endif %}
     </div>
-    {% endif %}
 </div>
 
 

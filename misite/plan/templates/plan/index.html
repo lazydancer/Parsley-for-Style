@@ -13,16 +13,16 @@
     <div class="masonry">
       {% for recipe in latest_recipe_list %}
       <a href="{{ recipe.id }}/" class='shot'>
-        <img src="http://via.placeholder.com/180x180" alt="Food image" class="rounded">
+        <img src="/static/plan/180food_{{ recipe.id }}.jpg" style="height: 180px; width: 180px;" alt="Food image" class="rounded">
         <h4>{{ recipe.title }}</h4>
       </a>
       <div class="remove">
         <a href="removerecipe/{{ recipe.id }}/">x</a>
       </div>
       {% endfor %}
-      <a href="recipes" class='shot'>
+      <a href="recipes" class='shot' style="text-decoration: none;">
         <img style="height: 180px; width: 180px; border: 1px black dotted;" class="rounded">
-        <h4 style="font-size: 60px; margin:-138px 0 0 64px; color:#999;">+</h4>
+        <h4  style="font-size: 60px; margin:-138px 0 0 64px; color:#999;">+</h4>
       </a>
     </div>
   </div>

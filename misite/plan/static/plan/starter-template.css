@@ -30,7 +30,7 @@ body {
 	right:32px;
 }
 .remove a {
-	color: rgba(0,0,0,0.5);
+	color: rgba(255,255,255,0.9);
 }
 
 .table td, .table th {
@@ -130,4 +130,8 @@ input[type=checkbox] {
 	font-size: 14pt;
 	padding:4px;
 
+}
+
+.shot a:hover {
+	text-decoration: none;
 }

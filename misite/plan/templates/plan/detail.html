@@ -1,16 +1,33 @@
 {% extends "plan/base.html" %}
 
 {% block content %}
-	<h1>{{ recipe.title }}</h1>
-	<ul>
-	{% for ingredient in recipe.ingredient_set.all %}
-	    <li>{{ ingredient.name }}</li>
-	{% endfor %}
-	</ul>
+	<h1 style="padding: 20px 0 20px">{{ recipe.title }}</h1>
+	<img src="/static/plan/920food_{{ recipe.id }}.jpg" style="width:920px; height: 570px padding:20px;" alt="Food image" class="rounded">
+
+	<div class="grocery">
+        <table class="table">
+          <tbody>
+          {% for ingredient in recipe.ingredient_set.all %}
+            <tr>
+              <td>
+                <div class="customCheckbox" style="margin: 6px -40px 0 28px">
+                  <input type="checkbox" value="1" id="customCheckbox_{{ ingredient.name }}" name=""/>
+                  <label for="customCheckbox_{{ ingredient.name }}"></label>
+                </div>
+              </td>
+              <td>{{ ingredient.amount|floatformat:2 }} {{ ingredient.unit }} {{ ingredient.name }}</td>
+              <td></td>
+              <td></td>
+            </tr>
+          {% endfor %}
+          </tbody>
+        </table>
+
+    </div><!--grocery-->
 
 	<ol>
 		{% for instruction in recipe.decode_instruction %}
-	    <li>{{ instruction }}</li>
+	    <li style="padding-bottom: 20px">{{ instruction }}</li>
 	    {% endfor %}
 	  
 	</ol>

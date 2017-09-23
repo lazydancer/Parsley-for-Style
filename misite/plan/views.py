@@ -73,7 +73,7 @@ class RecipeListView(generic.TemplateView):
 
 	def get_context_data(self, **kwargs):
 		context = super(RecipeListView, self).get_context_data(**kwargs)
-		context['latest'] = Recipe.objects.order_by('id')[:8]
+		context['latest'] = Recipe.objects.order_by('id')[:17]
 		return context
 
 def addRecipe(request, recipe_id):
