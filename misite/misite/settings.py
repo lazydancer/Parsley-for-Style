@@ -25,7 +25,7 @@ SECRET_KEY = '+yn7+_^1f!y$sopfcf64hz5=0zyt9cnux)-@949$f-*ndus10w'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['food-dev.us-east-2.elasticbeanstalk.com']
+ALLOWED_HOSTS = ['food-dev.us-east-2.elasticbeanstalk.com', '52.14.170.64', 'localhost']
 
 
 # Application definition
