@@ -7,10 +7,11 @@
 -->
 
 <div class="row" style="padding-top:3rem">
-  {% if latest_recipe_list %}
+  
     <div class="col-md-6">
   
     <div class="masonry">
+      {% if latest_recipe_list %}
       {% for recipe in latest_recipe_list %}
       <a href="{{ recipe.id }}/" class='shot'>
         <img src="/static/plan/180food_{{ recipe.id }}.jpg" style="height: 180px; width: 180px;" alt="Food image" class="rounded">
@@ -20,6 +21,7 @@
         <a href="removerecipe/{{ recipe.id }}/">x</a>
       </div>
       {% endfor %}
+      {% endif %}
       <a href="recipes" class='shot' style="text-decoration: none;">
         <img style="height: 180px; width: 180px; border: 1px black dotted;" class="rounded">
         <h4  style="font-size: 60px; margin:-138px 0 0 64px; color:#999;">+</h4>
@@ -28,7 +30,7 @@
   </div>
  
 
-{% endif %}
+
     <div class='col-md-6'>
       <div class="grocery">
         <table class="table">
