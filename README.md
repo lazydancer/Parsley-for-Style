@@ -6,7 +6,7 @@
   <h3 align="center">food</h3>
 
   <p align="center">
-    Promoting healthy eating my reducing barriers of starting cooking (Complex ingredient list, long instructions, inflexible recipes)
+    Promoting healthy eating my reducing barriers of starting cooking
     <br>
     <a href="http://food-dev.us-east-2.elasticbeanstalk.com/"><strong>View demo &raquo;</strong></a>
     <br>
