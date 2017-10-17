@@ -1,7 +1,7 @@
 .elasticbeanstalk\*
-miste/data.json
-misite/misite/__pychache__/*
-misite/plan/__pychache__/*
+miste\data.json
+misite\misite\__pychache__\*
+misite\plan\__pychache__\*
 
 !.elasticbeanstalk/*.cfg.yml
 !.elasticbeanstalk/*.global.yml
