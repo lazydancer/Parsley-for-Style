@@ -1,5 +1,11 @@
-
-# Elastic Beanstalk Files
-.elasticbeanstalk/*
-!.elasticbeanstalk/*.cfg.yml
-!.elasticbeanstalk/*.global.yml
+
+# Elastic Beanstalk Files
+
+.elasticbeanstalk\*
+miste/data.json
+misite/misite/__pychache__/*
+misite/plan/__pychache__/*
+
+!.elasticbeanstalk/*.cfg.yml
+!.elasticbeanstalk/*.global.yml
+
