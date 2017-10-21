@@ -1,0 +1,38 @@
+[[source]]
+
+url = "https://pypi.python.org/simple"
+verify_ssl = true
+name = "pypi"
+
+
+[packages]
+
+awsebcli = "*"
+botocore = "*"
+cement = "*"
+colorama = "*"
+Django = "*"
+docker-py = "*"
+dockerpty = "*"
+docopt = "*"
+docutils = "*"
+jmespath = "*"
+pathspec = "*"
+"psycopg2" = "*"
+python-dateutil = "*"
+pytz = "*"
+PyYAML = "*"
+requests = "*"
+semantic_version = "*"
+tabulate = "*"
+termcolor = "*"
+websocket-client = "*"
+
+
+[dev-packages]
+
+
+
+[requires]
+
+python_version = "3.6"
