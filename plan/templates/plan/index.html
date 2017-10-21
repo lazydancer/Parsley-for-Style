@@ -8,18 +8,22 @@
 
 <div class="row" style="padding-top:3rem">
   
-    <div class="col-md-6">
+    <div class="col-md-12">
   
     <div class="masonry">
       {% if latest_recipe_list %}
       {% for recipe in latest_recipe_list %}
-      <a href="{{ recipe.id }}/" class='shot'>
-        <img src="/static/plan/180food_{{ recipe.id }}.jpg" style="height: 180px; width: 180px;" alt="Food image" class="rounded">
-        <h4>{{ recipe.title }}</h4>
-      </a>
-      <div class="remove">
-        <a href="removerecipe/{{ recipe.id }}/">x</a>
+      <div class='shot'>
+        <a href="{{ recipe.id }}/">
+          <img src="http://via.placeholder.com/200x150">
+
+          <!--<img src="/static/plan/180food_{{ recipe.id }}.jpg" alt="{{ recipe.title }}">-->
+          <!--<h4>{{ recipe.title }}</h4>-->
+        </a>
       </div>
+      <!--<div class="remove">
+        <a href="removerecipe/{{ recipe.id }}/">x</a>
+      </div>-->
       {% endfor %}
       {% endif %}
       <a href="recipes" class='shot' style="text-decoration: none;">
@@ -31,7 +35,7 @@
  
 
 
-    <div class='col-md-6'>
+    <div class='col-md-12'>
       <div class="grocery">
         <table class="table">
           <tbody>
