@@ -50,18 +50,6 @@ body {
 	border-bottom: 1px solid rgba(73,58,37,.15);
 }
 
-.navbar img {
-  filter: gray; /* IE6-9 */
-  -webkit-filter: grayscale(1); /* Google Chrome, Safari 6+ & Opera 15+ */
-  filter: grayscale(1); /* Microsoft Edge and Firefox 35+ */
-}
-
-/* Disable grayscale on hover */
-.navbar img:hover {
-  -webkit-filter: grayscale(0);
-  filter: none;
-}
-
 input[type=checkbox] {
 	visibility: hidden;
 }
@@ -86,9 +74,33 @@ input[type=checkbox] {
 }
 
 /* Override bootstraps media query */
+
+.container{
+	width: 270px;
+}
+
+@media (min-width: 576px) {
+.container{
+	width: 530px;
+}
+}
+
+@media (min-width: 768px) {
+.container{
+	width: 530px;
+}
+}
+
+
+@media (min-width: 992px) {
+.container{
+	width: 780px;
+}
+}
+
 @media (min-width: 1200px) {
 .container{
-	width: 960px;
+	width: 1030px;
 }
 }
 
