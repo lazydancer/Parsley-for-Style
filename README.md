@@ -1,6 +1,6 @@
 <p align="center">
   <a href="http://food-dev.us-east-2.elasticbeanstalk.com/">
-    <img src="http://food-dev.us-east-2.elasticbeanstalk.com/static/plan/arrows.svg" width=75 height=75>
+    <h1>🌿</h1>
   </a>
 
   <h3 align="center">food</h3>
