@@ -1,9 +1,9 @@
 <p align="center">
   <a href="http://food-dev.us-east-2.elasticbeanstalk.com/">
-    <h1>🌿</h1>
+    🌿
   </a>
 
-  <h3 align="center">food</h3>
+  <h3 align="center">Parsley For Style</h3>
 
   <p align="center">
     Promoting healthy eating my reducing barriers of starting cooking
