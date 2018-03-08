@@ -17,7 +17,7 @@
 
 ## How it works
 
-View at [pucula.com/food](http://pucula.com/food)
+View at [pucula.com/parsley-for-style](http://pucula.com/parsley-for-style)
 
 ## Status
 
