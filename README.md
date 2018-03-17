@@ -8,7 +8,7 @@
   <p align="center">
     Promoting healthy eating my reducing barriers of starting cooking
     <br>
-    <a href="http://food-dev.us-east-2.elasticbeanstalk.com/"><strong>View demo &raquo;</strong></a>
+    <a href="https://glacial-basin-81612.herokuapp.com/"><strong>View demo &raquo;</strong></a>
     <br>
     <br>
   </p>
