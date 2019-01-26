@@ -15,10 +15,6 @@
 </p>
 <br>
 
-## How it works
-
-View at [pucula.com/parsley-for-style](http://pucula.com/parsley-for-style)
-
 ## Status
 
 [![Build Status](https://img.shields.io/travis/twbs/bootstrap/v4-dev.svg)](https://travis-ci.org/twbs/bootstrap)
